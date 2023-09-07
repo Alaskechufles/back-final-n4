@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('paginas', function (Blueprint $table) {
             $table->id();
-            $table->string('url');
-            $table->string('estado');
-            $table->string('nombre_pagina');
-            $table->string('descripcion');
-            $table->binary('icono');
-            $table->string('tipo');
+            $table->string('url')->nullable();
+            $table->string('estado')->nullable();
+            $table->string('nombre_pagina')->nullable();
+            $table->string('descripcion')->nullable();
+            $table->binary('icono')->nullable();
+            $table->string('tipo')->nullable();
+            $table->date('usuariocreacion')->nullable();
+            $table->date('usuariomodificacion')->nullable();
             $table->timestamps();
         });
     }
