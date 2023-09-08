@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class PersonaController extends Controller
 {
+
     public function create(Request $request)
     {
         $nuevaPersona = new Persona();
@@ -32,15 +33,28 @@ class PersonaController extends Controller
 
         return redirect("http://localhost:5173/");
     }
+    private $idUsauario;
     public function login(Request $request)
     {
         $usuarioEntrante = Usuario::where('usuario', $request->usuario)->first();
 
         if ($request->clave === $usuarioEntrante->clave) {
-            return redirect("http://localhost:5173/perfil");
+
+            $idUsuario = $usuarioEntrante->id;
+            $this->verificar($idUsuario);
+
+            /* return var_dump(session("idUsuarioLogeado")); */
+            return redirect("api/verificar");
         }
         return redirect("http://localhost:5173/");
     }
+
+    public function verificar($idUsuario)
+    {
+
+        return $idUsuario;
+    }
+
     public function user($id)
     {
         $persona = Persona::find($id);

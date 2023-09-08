@@ -20,4 +20,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::post('/register', [PersonaController::class, 'create']);
 Route::post('/login', [PersonaController::class, 'login']);
-Route::get('/user/{id}', [PersonaController::class, 'user']);
+Route::get('/verificar', [PersonaController::class, 'verificar']);
+
+/* Route::middleware(['web'])->group(function () {
+    // Rutas que necesitan sesiones
+    Route::post('/login', [PersonaController::class, 'login']);
+    Route::get('/verificar', [PersonaController::class, 'verificar']);
+}); */
+
+// Otras rutas de API
