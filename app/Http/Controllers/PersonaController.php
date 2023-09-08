@@ -41,4 +41,11 @@ class PersonaController extends Controller
         }
         return redirect("http://localhost:5173/");
     }
+    public function user($id)
+    {
+        $persona = Persona::find($id);
+        $persona->Persona;
+
+        return $persona;
+    }
 }
