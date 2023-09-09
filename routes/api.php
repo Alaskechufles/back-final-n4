@@ -21,6 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/register', [PersonaController::class, 'create']);
 Route::post('/login', [PersonaController::class, 'login']);
 Route::get('/verificar', [PersonaController::class, 'verificar']);
+Route::get('/', [PersonaController::class, 'index']);
 
 /* Route::middleware(['web'])->group(function () {
     // Rutas que necesitan sesiones
