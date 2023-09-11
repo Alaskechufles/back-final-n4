@@ -30,7 +30,7 @@ class PersonaController extends Controller
         $nuevoUsuario->usuario = $request->usuario;
         $nuevoUsuario->clave = $request->clave;
         $nuevoUsuario->habilitado = 1;
-        $nuevoUsuario->fecha = now();
+        $nuevoUsuario->fecha = NULL;
         $nuevoUsuario->usuariocreacion = now();
         $nuevoUsuario->usuariomodificacion = NULL;
         $nuevoUsuario->save();
