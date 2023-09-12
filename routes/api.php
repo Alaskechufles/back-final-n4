@@ -25,6 +25,7 @@ Route::post('/register', [PersonaController::class, 'create']);
 Route::post('/login', [PersonaController::class, 'login']);
 Route::get('/verificar', [PersonaController::class, 'verificar']);
 Route::get('/', [PersonaController::class, 'index']);
+Route::get('/personas/{id}', [PersonaController::class, 'indexByID']);
 
 // Otras rutas de API
 

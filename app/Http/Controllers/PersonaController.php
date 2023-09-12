@@ -10,8 +10,15 @@ class PersonaController extends Controller
 {
     public function index()
     {
-        session(["hola" => "diego"]);
-        return session()->all();
+
+        $personas = Persona::all();
+        return $personas;
+    }
+    public function indexByID($id)
+    {
+        $persona = Persona::find($id);
+        $persona->usuarios;
+        return $persona;
     }
     public function create(Request $request)
     {
@@ -45,7 +52,7 @@ class PersonaController extends Controller
         if ($request->clave === $usuarioEntrante->clave) {
 
 
-            return redirect("http://localhost:5173/perfil");
+            return redirect("http://localhost:5173/perfil/" . $usuarioEntrante->id);
         }
         return redirect("http://localhost:5173/");
     }
