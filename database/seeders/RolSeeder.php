@@ -16,6 +16,7 @@ class RolSeeder extends Seeder
         Rol::create(
             [
                 'rol' => 'admin',
+                'habilitado' => 1,
                 'usuariocreacion' => now(),
                 'usuariomodificacion' => now(),
             ]

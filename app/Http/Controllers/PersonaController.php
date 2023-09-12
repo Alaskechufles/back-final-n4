@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bitacora;
 use App\Models\Persona;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
@@ -42,7 +43,7 @@ class PersonaController extends Controller
         $nuevoUsuario->usuariomodificacion = NULL;
         $nuevoUsuario->save();
 
-        return redirect("http://localhost:5173/");
+        return redirect("http://localhost:5173/usuarios/1");
     }
     private $idUsuario;
     public function login(Request $request)
@@ -50,7 +51,11 @@ class PersonaController extends Controller
         $usuarioEntrante = Usuario::where('usuario', $request->usuario)->first();
 
         if ($request->clave === $usuarioEntrante->clave) {
-
+            $agregarBitacora = new Bitacora();
+            $agregarBitacora->bitacora = "Inició sesion el usuario con id: " . $usuarioEntrante->id;
+            $agregarBitacora->bitacora_fecha = now();
+            $agregarBitacora->bitacora_hora = now()->toTimeString();
+            $agregarBitacora->save();
 
             return redirect("http://localhost:5173/perfil/" . $usuarioEntrante->id);
         }
